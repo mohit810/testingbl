@@ -1,0 +1,7 @@
+{
+  "name": "becontest",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "ionic-angular"
+}
