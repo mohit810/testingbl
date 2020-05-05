@@ -1,7 +1,8 @@
 {
   "name": "becontest",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "ionic-angular"
 }

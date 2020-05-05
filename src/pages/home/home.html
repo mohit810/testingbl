@@ -1,14 +1,59 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>
-      Ionic Blank
+      Test
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v3">docs</a> will be your guide.
-  </p>
+  <div *ngIf="!beaconData; else beaconFound">
+    <ion-card>
+      <ion-card-header>
+        Start Scan
+      </ion-card-header>
+      <ion-card-content>
+        <p>Click the start button to scan for beacons</p>
+        <button ion-button (click)="monitor()">Scan</button>
+        <p>beacon data = {{outputdata}}</p>
+        <p>Error = {{outputerror}}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div>
+    <ion-card>
+      <ion-card-header>
+        Start Scan
+      </ion-card-header>
+      <ion-card-content>
+        <p>Click the start button to scan for beacons</p>
+        <button ion-button (click)="watch()">Transmit</button>
+        <p>Bluetooth - {{buke}}</p>
+        <p>permission - {{pero}}</p>
+        <p>Bluetooth-enable - {{bule}}</p>
+        <p>getauth - {{auther}}</p>
+        <p>Success-advertising = {{inputdata}}</p>
+        <p>Error = {{inputerror}}</p>
+        <p>Success = {{advertinputdata}}</p>
+        <p>advertavail - {{advertavailinputerror}}</p>
+        <button ion-button (click)="stopBeaconScan()">Stop Transmitting</button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <ng-template #beaconFound>
+    <ion-card>
+      <ion-card-header>
+        Becon Data
+      </ion-card-header>
+      <ion-card-content>
+        <p>Yay!</p>
+        <ion-list>
+          <ion-item>{{beaconData.address}}</ion-item>
+          <ion-item>{{beaconData.txPower}}</ion-item>
+          <ion-item>{{beaconData.temperature}}</ion-item>
+        </ion-list>
+        <a [href]="beaconData.url" ]>URl</a>
+      </ion-card-content>
+    </ion-card>
+  </ng-template>
 </ion-content>
